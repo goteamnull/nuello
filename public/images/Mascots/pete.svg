@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="401px" height="400px" viewBox="0 0 401 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16044) - http://www.bohemiancoding.com/sketch -->
+    <title>pete</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Original-Assets" sketch:type="MSArtboardGroup" transform="translate(-1879.000000, -1878.000000)">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(229.000000, 198.000000)">
+                <g id="Mascots" transform="translate(810.000000, 1680.000000)" sketch:type="MSShapeGroup">
+                    <g id="Pete" transform="translate(840.500000, 0.000000)">
+                        <g>
+                            <g transform="translate(52.000000, 72.000000)">
+                                <g id="Cord" transform="translate(0.000000, 197.728395)">
+                                    <path d="M41.9498609,1.6450135 C41.9498609,1.6450135 0.104379031,13.4608893 0.104380708,51.660108 C0.104380708,89.8593268 52.0114155,88.9495491 67.5194064,88.9495563 C83.0273973,88.9495636 111.2251,86.2685195 130.457245,74.2521219" id="Path-3" stroke="#979797" stroke-width="3.80246914"></path>
+                                    <path d="M139.333333,62.7407407 L154.60274,55.1358025" id="Line" stroke="#979797" stroke-width="3.80246914" stroke-linecap="square"></path>
+                                    <path d="M139.333333,74.1481481 L158.420091,62.7407407" id="Line" stroke="#979797" stroke-width="3.80246914" stroke-linecap="square"></path>
+                                    <path d="M122.345373,64.97989 L136.474048,85.2473476 L150.934503,76.7437789 L139.165579,54.864728 L122.345373,64.97989 Z" id="Path-4" fill="#858585"></path>
+                                </g>
+                                <path d="M76.347032,0 L76.347032,242.120247 L278.666667,235.753086 L278.666667,11.5429736 L76.347032,0 Z" id="Front" fill="#D8D8D8"></path>
+                                <path d="M77.0776969,1.07510785 L21.9547422,62.03768 L19.7428653,229.955311 L77.0776969,242.328818 L77.0776969,1.07510785 Z" id="Back" fill="#CCCCCC"></path>
+                                <path d="M101.891211,26.3192354 L101.891211,148.296296 L252.307266,148.296296 L252.307266,35.5738347 L101.891211,26.3192354 Z" id="Screen" fill="#0079BF"></path>
+                                <ellipse id="Power-Button" fill="#36D936" cx="122.155251" cy="197.728395" rx="11.4520548" ry="11.4074074"></ellipse>
+                                <g id="Speaker" transform="translate(223.189691, 193.113341) rotate(-1.000000) translate(-223.189691, -193.113341) translate(194.689691, 174.113341)" fill="#AEAEAE">
+                                    <rect id="Rectangle-2" x="3.01369863" y="0.0419753086" width="51.2328767" height="7.60493827"></rect>
+                                    <rect id="Rectangle-3" x="-8.52651283e-14" y="15.2518519" width="57.260274" height="7.60493827"></rect>
+                                    <rect id="Rectangle-4" x="3.01369863" y="30.4617284" width="51.2328767" height="7.60493827"></rect>
+                                </g>
+                                <path d="M119.39881,85.9329372 L123.749158,88.0331224 L133.275022,72.8068647 L141.675678,88.0331224 L146.326148,85.8579913 L134.550122,63.65607 L132.674945,63.65607 L119.39881,85.9329372 Z M157.755114,119.460869 L157.755114,124.786278 L195.258324,124.786278 L195.258324,119.460869 L157.755114,119.460869 Z M206.312391,85.9329372 L210.662738,88.0331224 L220.188602,72.8068647 L228.589258,88.0331224 L233.239729,85.8579913 L221.463702,63.65607 L219.588525,63.65607 L206.312391,85.9329372 Z" id="^_^" fill="#FFFFFF" transform="translate(176.319270, 94.221174) rotate(-357.000000) translate(-176.319270, -94.221174) "></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

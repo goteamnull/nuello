@@ -1,0 +1,47 @@
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  -ms-transform: rotate(5deg); /* IE 9 */
+  -webkit-transform: rotate(5deg); /* Safari */
+  transform: rotate(5deg);
+}
+.gu-hide {
+  display: none !important;
+}
+.gu-unselectable {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+.gu-transit {
+  border-color: transparent;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.list-wrapper.gu-transit {
+  background-color: #00629d;
+}
+
+#cards-container > a.gu-transit {
+  background-color: #C4C9CC;
+  display: block;
+  margin: 0 8px 7px 8px
+}
+
+.gu-transit > * {
+  visibility: hidden;
+}
+
+.list-wrapper.gu-mirror > .list-background {
+  box-shadow: -2px 2px 8px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.5);
+}
+
+#cards-container:empty {
+  padding-top: 10px;
+  margin-top: -10px;
+}

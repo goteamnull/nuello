@@ -1,0 +1,14 @@
+<% path = Rails.root.join('app', 'views', 'ui') %>
+<% files = Dir.entries(path).reject { |e| e.starts_with?('.') || e.starts_with?('index') } %>
+
+
+<section style="margin: 0 auto; max-width: 1250px; padding: 30px 20px;">
+  <h1 style="font-weight: bold; font-size: 1.5em;">Choose a static Template</h1>
+
+  <p style="margin-top: 1em;">
+    <% files.each do |file| %>
+      <%= link_to file.gsub(/\..*$/, '').gsub('_', ' ').capitalize, "/ui/" + file.gsub(/\..*$/, ''), style: 'color: white; margin-bottom: 5px; display: inline-block; text-decoration: none' %>
+      <br>
+    <% end %>
+  </p>
+</section>

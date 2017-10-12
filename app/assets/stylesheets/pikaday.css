@@ -1,0 +1,144 @@
+
+.pika-single .pika-table td, .pika-single .pika-table th {
+  width: 14.285714285714286%;
+  padding: 0;
+  text-align: center;
+}
+
+.pika-single .pika-table abbr {
+  border-bottom: none;
+}
+
+.pika-single thead {
+  background: linear-gradient(to bottom,#fff 0,#EDEFF0 100%);
+}
+
+.pika-single .pika-table {
+  width: 100%;
+  margin: 0;
+}
+
+.pika-single .pika-table, table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.pika-single .pika-title {
+  position: relative;
+  text-align: center;
+}
+
+.pika-single {
+  display: block;
+  position: relative;
+  background: #fff;
+}
+
+.pika-single .pika-table td {
+  background-color: #EDEFF0;
+}
+
+.pika-single .is-today .pika-button {
+  font-weight: 700;
+}
+
+.pika-single .pika-button {
+  cursor: pointer;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  width: 100%;
+  padding: 5px;
+  line-height: 15px;
+  background: #fff;
+  color: #333;
+}
+
+.pika-single button {
+  border-radius: 0;
+  border: none;
+  background: 0 0;
+  font-weight: 400;
+  box-shadow: none;
+  margin: 0;
+}
+
+.pika-single .pika-table th {
+  line-height: 25px;
+  font-weight: 700;
+}
+
+.pika-single td, th {
+  padding: 5px;
+  vertical-align: top;
+  border: 1px solid #D6DADC;
+}
+
+.pika-single .is-selected .pika-button {
+  color: #fff;
+  background: #0079BF;
+}
+
+.pika-single .pika-button:hover {
+  background: #D6DADC;
+}
+
+.pika-single .pika-label {
+  display: inline-block;
+  position: relative;
+  z-index: 9999;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 6px 4px;
+  color: #838c91;
+  text-decoration: underline;
+  margin: 6px 0;
+  line-height: 18px;
+}
+.pika-single .pika-title select {
+  cursor: pointer;
+  position: absolute;
+  z-index: 9998;
+  margin: 0;
+  left: 0;
+  top: 5px;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+.pika-single .pika-select {
+  display: inline-block;
+}
+
+.pika-single .pika-next, .pika-single .pika-prev {
+  display: block;
+  position: relative;
+  outline: 0;
+  white-space: nowrap;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 6px 10px;
+  color: #838c91;
+  text-decoration: underline;
+  margin: 6px 0;
+  line-height: 18px;
+}
+
+.pika-single .is-rtl .pika-next, .pika-single .pika-prev {
+  float: left;
+}
+
+.pika-single .is-rtl .pika-prev, .pika-single .pika-next {
+  float: right;
+}
+
+.pika-single button, .pika-single input, .pika-single select, .pika-single textarea {
+  font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+
+.pika-single .is-selected .pika-button:hover {
+  background: #298FCA;
+}
