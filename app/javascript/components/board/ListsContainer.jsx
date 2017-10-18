@@ -18,7 +18,8 @@ class ListsContainer extends React.Component {
   }
 
   render() {
-    const lists = this.context.store.getState().lists;
+    const lists = this.context.store.getState().board.lists;
+    console.log(this.context.store.getState())
     return (
       <Lists lists={lists} />
     );
