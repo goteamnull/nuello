@@ -15,8 +15,8 @@ const Lists = (props) => {
   );
 };
 
-Lists.propTypes = {
-  lists: PropTypes.object.isRequired
-};
+// Lists.propTypes = {
+//   lists: PropTypes.object.isRequired
+// };
 
 export default Lists;
