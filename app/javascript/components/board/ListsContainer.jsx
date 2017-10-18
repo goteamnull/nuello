@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Board from './Board';
+import Lists from './Lists';
 
-import * as actions from '../../actions/BoardActions';
-
-class BoardContainer extends React.Component {
+class ListsContainer extends React.Component {
   static contextTypes = {
     store: PropTypes.object.isRequired
   };
@@ -13,7 +11,6 @@ class BoardContainer extends React.Component {
   componentDidMount() {
     const store = this.context.store;
     this.unsubscribe = store.subscribe(() => this.forceUpdate());
-    store.dispatch(actions.fetchBoard(this.props.match.params.id));
   }
 
   componentWillUnmount() {
@@ -21,11 +18,11 @@ class BoardContainer extends React.Component {
   }
 
   render() {
-    const board = this.context.store.getState().board;
+    const lists = this.context.store.getState().lists;
     return (
-      <Board board={board}/>
+      <Lists lists={lists} />
     );
   }
 }
 
-export default BoardContainer;
+export default ListsContainer;
