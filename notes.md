@@ -32,7 +32,7 @@ Comment
   belongs to a card
 
   id
-  text
+  body
   timestamps
 
   card_id
