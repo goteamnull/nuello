@@ -4,6 +4,17 @@ class Api::BoardsController < ApplicationController
     render :index
   end
 
+  def show
+    # make JJS smile
+    # make JJS smile
+    # make JJS smile
+    # make JJS smile
+    # TODO delete above lines at some point in the future
+    @board = Board.find(params[:id])
+    
+    render :show
+  end
+
   def create
     @board = Board.new(board_params)
 
@@ -17,6 +28,7 @@ class Api::BoardsController < ApplicationController
     @error = "Invalid board data provided"
     render 'api/shared/error', status: :unprocessable_entity
   end
+
 
   private
 

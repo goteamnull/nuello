@@ -9,6 +9,16 @@ class BoardsAPITest < ActionDispatch::IntegrationTest
     end
   end
 
+  class GetBoardTest < ActionDispatch::IntegrationTest
+    # Use factory to make board
+
+    test "returns a json object" do
+      get "/api/boards/1",
+        headers: { 'Accept' => 'application/json' }
+      assert_match /\{.*\}/, response.body
+    end
+  end
+
   class PostBoardsTest < ActionDispatch::IntegrationTest
     class ValidDataTest < ActionDispatch::IntegrationTest
       test "creates a new board" do

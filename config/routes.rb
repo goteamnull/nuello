@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   namespace :api do
-    resources :boards, only: [:index, :create]
+    resources :boards, only: [:index, :create, :show]
   end
 
   get '/ui/all_boards', to: 'ui#all_boards'
