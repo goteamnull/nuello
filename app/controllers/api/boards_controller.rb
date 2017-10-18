@@ -5,14 +5,12 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    # make JJS smile
-    # make JJS smile
-    # make JJS smile
-    # make JJS smile
-    # TODO delete above lines at some point in the future
     @board = Board.find(params[:id])
-    
+
     render :show
+  rescue ActiveRecord::RecordNotFound
+    @error = "Invalid Board ID"
+    render 'api/shared/error', status: :not_found
   end
 
   def create
