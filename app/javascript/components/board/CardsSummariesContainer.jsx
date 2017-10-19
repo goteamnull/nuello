@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Lists from './Lists';
+import CardsSummaries from './CardsSummaries';
 
-class ListsContainer extends React.Component {
+class CardsSummariesContainer extends React.Component {
   static contextTypes = {
     store: PropTypes.object.isRequired
   };
@@ -17,15 +17,19 @@ class ListsContainer extends React.Component {
     this.unsubscribe();
   }
 
-  allLists = () => {
+  allCardsSummaries = () => {
     const store = this.context.store;
-    return store.getState().board.lists;
+    const lists = store.getState().board.lists;
+
+    return lists.find(list => list.id === this.props.listId).cards;
   }
 
   render() {
-    if (this.allLists()) {
+    if (this.allCardsSummaries()) {
       return (
-        <Lists lists={this.allLists()} />
+        <CardsSummaries
+          cards={this.allCardsSummaries()}
+        />
       );
     } else {
       return null;
@@ -33,4 +37,4 @@ class ListsContainer extends React.Component {
   }
 }
 
-export default ListsContainer;
+export default CardsSummariesContainer;
