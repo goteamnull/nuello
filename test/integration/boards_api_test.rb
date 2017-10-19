@@ -10,12 +10,24 @@ class BoardsAPITest < ActionDispatch::IntegrationTest
   end
 
   class GetBoardTest < ActionDispatch::IntegrationTest
-    # Use factory to make board
-
     test "returns a json object" do
       get "/api/boards/1",
         headers: { 'Accept' => 'application/json' }
       assert_match /\{.*\}/, response.body
+    end
+
+    test "returns a board json object" do
+      board = FactoryGirl.create(:board)
+
+      get "/api/boards/#{board.id}",
+        headers: { 'Accept' => 'application/json' }
+      assert_includes response.body, board.title
+    end
+
+    test "returns a 404" do
+      get "/api/boards/-4",
+        headers: { 'Accept' => 'application/json' }
+      assert_response 404
     end
   end
 

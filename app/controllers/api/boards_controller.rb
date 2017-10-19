@@ -6,8 +6,8 @@ class Api::BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
-
     render :show
+
   rescue ActiveRecord::RecordNotFound
     @error = "Invalid Board ID"
     render 'api/shared/error', status: :not_found
