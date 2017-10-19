@@ -17,10 +17,14 @@ class ListsContainer extends React.Component {
     this.unsubscribe();
   }
 
+  allLists = () => {
+    const store = this.context.store;
+    return store.getState().board.lists;
+  }
+
   render() {
-    const lists = this.context.store.getState().board.lists;
     return (
-      <Lists lists={lists} />
+      <Lists lists={this.allLists} />
     );
   }
 }
