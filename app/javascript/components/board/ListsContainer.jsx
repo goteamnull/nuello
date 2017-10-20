@@ -19,7 +19,7 @@ class ListsContainer extends React.Component {
 
   allLists = () => {
     const store = this.context.store;
-    return store.getState().board.lists;
+    return store.getState().lists.filter(list => list.board_id === Number(this.props.match.params.id));
   }
 
   render() {
