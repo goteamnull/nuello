@@ -4,12 +4,14 @@ import ReduxThunk from 'redux-thunk';
 import boardsReducer from '../reducers/BoardsReducer';
 import boardReducer from '../reducers/BoardReducer';
 import statusReducer from '../reducers/StatusReducer';
+import listsReducer from '../reducers/ListsReducer';
 
 function reducer(state = {}, action) {
   return {
     boards: boardsReducer(state.boards, action),
     status: statusReducer(state.status, action),
     board: boardReducer(state.board, action),
+    lists: listsReducer(state.lists, action),
   };
 }
 
