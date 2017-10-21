@@ -3,7 +3,7 @@ export default function listsReducer(state = [], action) {
     const updatedLists = action.board.lists;
     // const excludedLists = state.filter((list) => list.board_id !== action.board.id);
     const unchangedLists = state.filter((stateList) => {
-      return !lists.some((list) => stateList.id === list.id);
+      return !updatedLists.some((list) => stateList.id === list.id);
     });
 
     return [...unchangedLists, ...updatedLists];
