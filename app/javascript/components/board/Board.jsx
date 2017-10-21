@@ -18,7 +18,7 @@ const Board = (props) => {
           <i className="sub-icon sm-icon"></i>Subscribed</div>
       </header>
       <main>
-        <ListsContainer />
+        <ListsContainer boardId={props.board.id} />
       </main>
     </div>
   );

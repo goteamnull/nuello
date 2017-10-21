@@ -8,6 +8,10 @@ class ListsContainer extends React.Component {
     store: PropTypes.object.isRequired
   };
 
+  static propTypes = {
+    boardId: PropTypes.number.isRequired
+  };
+
   componentDidMount() {
     const store = this.context.store;
     this.unsubscribe = store.subscribe(() => this.forceUpdate());
@@ -19,13 +23,18 @@ class ListsContainer extends React.Component {
 
   allLists = () => {
     const store = this.context.store;
-    return store.getState().lists.filter(list => list.board_id === Number(this.props.match.params.id));
-  }
+
+    return store.getState().lists.filter((list) => {
+      return list.board_id === this.props.boardId
+    });
+  };
 
   render() {
-    if (this.allLists()) {
+    const lists = this.allLists();
+
+    if (lists) {
       return (
-        <Lists lists={this.allLists()} />
+        <Lists lists={lists} />
       );
     } else {
       return null;

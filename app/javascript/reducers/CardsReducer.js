@@ -8,7 +8,7 @@ export default function cardsReducer(state = [], action) {
       return !updatedCards.some((card) => stateCard.id === card.id);
     });
 
-    return [...unchangedCards, updatedCards];
+    return [...unchangedCards, ...updatedCards];
   } else {
     return state;
   }

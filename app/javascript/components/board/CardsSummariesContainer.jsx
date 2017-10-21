@@ -8,6 +8,10 @@ class CardsSummariesContainer extends React.Component {
     store: PropTypes.object.isRequired
   };
 
+  static propTypes = {
+    listId: PropTypes.object.isRequired
+  };
+
   componentDidMount() {
     const store = this.context.store;
     this.unsubscribe = store.subscribe(() => this.forceUpdate());
@@ -19,16 +23,18 @@ class CardsSummariesContainer extends React.Component {
 
   allCardsSummaries = () => {
     const store = this.context.store;
-    const lists = store.getState().board.lists;
+    const cards = store.getState().cards
 
-    return lists.find(list => list.id === this.props.listId).cards;
+    return cards.filter(card => card.list_id === this.props.listId);
   }
 
   render() {
-    if (this.allCardsSummaries()) {
+    const cards = this.allCardsSummaries();
+
+    if (cards) {
       return (
         <CardsSummaries
-          cards={this.allCardsSummaries()}
+          cards={cards}
         />
       );
     } else {

@@ -13,7 +13,7 @@ function reducer(state = {}, action) {
     status: statusReducer(state.status, action),
     board: boardReducer(state.board, action),
     lists: listsReducer(state.lists, action),
-    cards: cardsReducer(state.cards, action)
+    cards: cardsReducer(state.cards, action),
   };
 }
 

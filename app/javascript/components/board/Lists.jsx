@@ -5,7 +5,7 @@ import List from './List';
 
 const Lists = (props) => {
   const lists = props.lists.map((list) => (
-    <List 
+    <List
       key={list.id}
       list={list}
     />

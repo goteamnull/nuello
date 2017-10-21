@@ -6,7 +6,7 @@ export default function listsReducer(state = [], action) {
       return !lists.some((list) => stateList.id === list.id);
     });
 
-    return [...unchangedLists, updatedLists];
+    return [...unchangedLists, ...updatedLists];
   } else {
     return state;
   }
