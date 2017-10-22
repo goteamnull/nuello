@@ -5,8 +5,8 @@ const CreateBoardTileForm = (props) => (
   <section className="new-board-form">
     <header>
       <span>Create Board</span>
-      <a 
-        href="#" 
+      <a
+        href="#"
         className="icon-sm icon-close"
         onClick={props.onCloseClick}
       ></a>
@@ -17,9 +17,9 @@ const CreateBoardTileForm = (props) => (
       <dl>
         <dt>Title</dt>
         <dd>
-          <input 
-            type="text" 
-            placeholder='Like "Publishing Calendar"...' 
+          <input
+            type="text"
+            placeholder='Like "Publishing Calendar"...'
             value={props.title}
             onChange={props.onTextChange}
           />

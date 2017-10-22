@@ -24,4 +24,8 @@ const CardSummary = (props) => {
   );
 };
 
+CardSummary.propTypes = {
+  card: PropTypes.object.isRequired,
+};
+
 export default CardSummary;
