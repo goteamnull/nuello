@@ -34,7 +34,10 @@ class ListsContainer extends React.Component {
 
     if (lists) {
       return (
-        <Lists lists={lists} />
+        <Lists
+          lists={lists}
+          boardId={this.props.boardId}
+        />
       );
     } else {
       return null;

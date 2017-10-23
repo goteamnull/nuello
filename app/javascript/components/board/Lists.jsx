@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import List from './List';
+import NewListFormContainer from './NewListFormContainer';
 
 const Lists = (props) => {
   const lists = props.lists.map((list) => (
@@ -16,6 +17,7 @@ const Lists = (props) => {
       <div id="existing-lists" className="existing-lists">
         {lists}
       </div>
+      <NewListFormContainer boardId={props.boardId} />
     </div>
   );
 };
@@ -23,6 +25,7 @@ const Lists = (props) => {
 Lists.propTypes = {
   store: PropTypes.object,
   lists: PropTypes.array,
+  boardId: PropTypes.number.isRequired
 };
 
 export default Lists;
