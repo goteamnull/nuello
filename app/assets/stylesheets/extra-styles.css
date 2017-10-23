@@ -1,0 +1,4 @@
+.hide-submit {
+  position: absolute;
+  visibility: hidden;
+}
