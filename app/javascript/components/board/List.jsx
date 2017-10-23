@@ -32,4 +32,8 @@ const List = (props) => {
   );
 };
 
+List.propTypes = {
+  list: PropTypes.object.isRequired,
+};
+
 export default List;

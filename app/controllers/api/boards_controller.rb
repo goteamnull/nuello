@@ -9,7 +9,7 @@ class Api::BoardsController < ApplicationController
     render :show
 
   rescue ActiveRecord::RecordNotFound
-    @error = "Invalid Board ID"
+    @error = "Invalid board id provided"
     render 'api/shared/error', status: :not_found
   end
 

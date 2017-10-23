@@ -9,7 +9,7 @@ class CardsSummariesContainer extends React.Component {
   };
 
   static propTypes = {
-    listId: PropTypes.object.isRequired
+    listId: PropTypes.number.isRequired
   };
 
   componentDidMount() {

@@ -68,6 +68,57 @@ describe("ApiClient", () => {
     });
   });
 
+  describe("getBoard", () => {
+    const board = {
+      id: 1,
+      title: "sweet board",
+    };
+
+    describe("successful request", () => {
+      it("calls the callback with the board", async () => {
+        const cb = jest.fn();
+
+        mock.onGet(routes.BOARD_URL + board.id).reply(200, board);
+        client.getBoard(board.id, cb);
+
+        await flushPromises();
+
+        expect(cb).toHaveBeenCalledWith(board);
+      });
+    });
+
+    describe("failed request", () => {
+      const originalError = global.console.error;
+      const errorText = "Invalid board id provided"
+
+      beforeEach(() => {
+        global.console.error = jest.fn();
+        mock.onGet(routes.BOARD_URL + board.id).reply(404, { error: errorText });
+      });
+
+      afterEach(() => {
+        global.console.error = originalError;
+      });
+
+      it("logs the error", async () => {
+        client.getBoard(board.id, (board) => {});
+
+        await flushPromises();
+
+        expect(global.console.error).toHaveBeenCalledWith(`HTTP Error: ${errorText}`);
+      });
+
+      it("doesn't call the callback", async () => {
+        const cb = jest.fn();
+        client.getBoard(board.id, cb);
+
+        await flushPromises();
+
+        expect(cb).not.toHaveBeenCalled();
+      });
+    });
+  });
+
   describe("createBoard", () => {
     describe("successful request", () => {
       const newBoard = {
