@@ -10,6 +10,21 @@ describe("BoardsReducer", () => {
     });
   });
 
+  describe("FETCH_BOARD_SUCCESS", () => {
+    it("returns the updated boards", () => {
+      const board1 = { id: 1, title: "Old board", };
+      const board2 = { id: 2, title: "Old board two", };
+      const updatedBoard2 = { id: 2, title: "New board two", };
+
+      expect(
+        reducer([board1, board2], {
+          type: types.FETCH_BOARD_SUCCESS,
+          board: updatedBoard2,
+        })
+      ).toEqual([board1, updatedBoard2]);
+    });
+  });
+
   describe("FETCH_BOARDS_SUCCESS", () => {
     it("returns the action.boards value", () => {
       expect(

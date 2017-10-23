@@ -9,6 +9,38 @@ class BoardsAPITest < ActionDispatch::IntegrationTest
     end
   end
 
+  class GetBoardTest < ActionDispatch::IntegrationTest
+    class ValidDataTest < ActionDispatch::IntegrationTest
+      test "returns a json object" do
+        get "/api/boards/1",
+          headers: { 'Accept' => 'application/json' }
+        assert_match /\{.*\}/, response.body
+      end
+
+      test "returns a board json object" do
+        board = FactoryGirl.create(:board)
+
+        get "/api/boards/#{board.id}",
+          headers: { 'Accept' => 'application/json' }
+        assert_includes response.body, board.title
+      end
+    end
+
+    class InvalidDataTest < ActionDispatch::IntegrationTest
+      test "returns a 404 when given a negative number param" do
+        get "/api/boards/-4",
+          headers: { 'Accept' => 'application/json' }
+        assert_response 404
+      end
+
+      test "returns a 404 when given a non-number param" do
+        get "/api/boards/whatever",
+          headers: { 'Accept' => 'application/json' }
+        assert_response 404
+      end
+    end
+  end
+
   class PostBoardsTest < ActionDispatch::IntegrationTest
     class ValidDataTest < ActionDispatch::IntegrationTest
       test "creates a new board" do
