@@ -12,6 +12,7 @@ const NewListForm = (props) => (
       placeholder="Add a list..."
       value={props.title}
       onChange={props.onTextChange}
+      ref={input => input && input.focus()}
     />
     <div>
       <input
