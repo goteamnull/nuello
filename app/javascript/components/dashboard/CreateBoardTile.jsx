@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CreateBoardTile = (props) => (
-  <a 
+  <a
     className="new-board"
     onClick={props.onClick}
   >

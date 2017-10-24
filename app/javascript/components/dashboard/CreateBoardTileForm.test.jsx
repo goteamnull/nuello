@@ -19,6 +19,6 @@ describe("CreateBoardTileForm", () => {
 
     expect(
       wrapper.html().indexOf('value="This is my title!!"')
-    )
+    ).not.toBe(-1)
   });
 });

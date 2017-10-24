@@ -169,4 +169,71 @@ describe("ApiClient", () => {
       });
     });
   });
+
+  describe("updateList", () => {
+    const listId = 1;
+    const update = {
+      title: "A new list title",
+    };
+
+    const list = {
+      id: 1,
+      title: "A new list title",
+    };
+
+    describe("successful request", () => {
+      it("calls the callback with the list", async () => {
+        const cb = jest.fn();
+
+        mock.onPut(
+          routes.UPDATE_LIST_URL + listId
+        ).reply(
+          200, list
+        );
+        client.updateList(listId, update, cb);
+
+        await flushPromises();
+
+        expect(cb).toHaveBeenCalledWith(list);
+      });
+    });
+
+    describe("failed request", () => {
+      const originalError = global.console.error;
+      const errorText = "Walid's 422 error code";
+
+      beforeEach(() => {
+        global.console.error = jest.fn();
+
+        mock.onPut(
+          routes.UPDATE_LIST_URL + listId
+        ).reply(422, { error: errorText } )
+      });
+
+      afterEach(() => {
+        global.console.error = originalError
+      });
+
+      it("logs the error", async () => {
+        client.updateList(listId, update, list => {});
+
+        await flushPromises();
+
+        expect(
+          global.console.error
+        ).toHaveBeenCalledWith(
+          `HTTP Error: ${errorText}`
+        );
+      });
+
+      it("doesn't call the callback", async () => {
+        const cb = jest.fn();
+        client.updateList(listId, update, cb);
+
+        await flushPromises();
+
+        expect(cb).not.toHaveBeenCalled();
+      });
+    });
+  });
 });
