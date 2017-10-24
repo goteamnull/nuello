@@ -18,7 +18,35 @@ class Api::ListsController < ApplicationController
         render 'api/shared/error', status: :unprocessable_entity
       end
     end
+  end
 
+  def update
+    if !params[:title] && !params[:position]
+      @error = 'require title or position'
+      render 'api/shared/error', status: :unprocessable_entity
+      return
+    end
+
+    @list = List.find(params[:id])
+
+    if params[:title]
+      @list.title = params[:title]
+    end
+
+    if params[:position]
+      @list.position = params[:position]
+    end
+
+    if @list.save
+      render :update, status: :ok
+    else
+      @error = @list.errors.full_messages.join(', ')
+      render 'api/shared/error', status: :unprocessable_entity
+    end
+
+  rescue ActiveRecord::RecordNotFound
+    @error = "Invalid list id provided"
+    render 'api/shared/error', status: :not_found
   end
 
   def list_params
