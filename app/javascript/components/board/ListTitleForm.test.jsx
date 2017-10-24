@@ -15,6 +15,6 @@ describe("ListTitleForm", () => {
 
     expect(
       wrapper.html().indexOf('value="Hello world!')
-    );
+    ).not.toBe(-1)
   });
 });

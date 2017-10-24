@@ -21,8 +21,6 @@ class ListTitleFormContainer extends React.Component {
   };
 
   handleTextChange = (e) => {
-    console.log('change listening')
-
     this.setState({
       title: e.target.value,
     });
