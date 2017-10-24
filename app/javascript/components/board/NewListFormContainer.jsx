@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 import NewListForm from './NewListForm';
 
+import * as actions from '../../actions/BoardActions';
+
 class NewListFormContainer extends React.Component {
   state = {
     title: '',
-    selected: false
+    active: false
   };
 
   static contextTypes = {
@@ -26,10 +28,60 @@ class NewListFormContainer extends React.Component {
     this.unsubscribe();
   }
 
+  getClassName = () => (
+    this.state.active ? 'new-list selected' : 'new-list'
+  );
+
+  handleTextChange = (e) => {
+    this.setState({
+      title: e.target.value
+    });
+  };
+
+  handleSpanClick = () => {
+    this.setState({
+      active: true
+    });
+  };
+
+  handleCloseClick = () => {
+    this.setInactive();
+  };
+
+  setInactive = () => {
+    this.setState({
+      active: false
+    });
+  };
+
+  handleSave = () => {
+    const newList = {
+      board_id: this.props.boardId,
+      list: {
+        title: this.state.title
+      }
+    };
+
+    this.context.store.dispatch(
+      actions.createList(newList, () => {
+        this.setState({
+          title: ''
+        });
+
+        this.setInactive();
+      })
+    );
+  };
+
   render() {
     return (
       <NewListForm
-        selected={this.state.selected}
+        className={this.getClassName()}
+        title={this.state.title}
+        onTextChange={this.handleTextChange}
+        onSpanClick={this.handleSpanClick}
+        onCloseClick={this.handleCloseClick}
+        onSave={this.handleSave}
       />
     );
   }
