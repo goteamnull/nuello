@@ -6,7 +6,6 @@ class Api::ListsController < ApplicationController
     if @list.save
       render :create, status: :created
     else
-      @error = @list.errors.full_messages.join(', ')
       if (!Board.exists?(params[:board_id]))
         @error = 'invalid board id'
         render 'api/shared/error', status: :not_found
@@ -14,7 +13,7 @@ class Api::ListsController < ApplicationController
         @error = 'cannot process list without title'
         render 'api/shared/error', status: :unprocessable_entity
       else
-        @error = 'invalid list data provided'
+        @error = @list.errors.full_messages.join(', ')
         render 'api/shared/error', status: :unprocessable_entity
       end
     end
