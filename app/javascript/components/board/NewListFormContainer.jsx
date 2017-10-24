@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import NewListForm from './NewListForm';
 
-import * as actions from '../../actions/BoardActions';
+import * as actions from '../../actions/ListActions';
 
 class NewListFormContainer extends React.Component {
   state = {
