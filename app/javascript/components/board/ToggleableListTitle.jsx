@@ -7,6 +7,7 @@ import ListTitle from './ListTitle';
 class ToggleableListTitle extends React.Component {
   static PropTypes = {
     title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   };
 
   state = {
@@ -29,10 +30,12 @@ class ToggleableListTitle extends React.Component {
 
   render() {
     const title = this.props.title;
+    const id = this.props.id;
 
     if (this.state.showForm) {
       return (
         <ListTitleFormContainer
+          id={id}
           title={title}
           onSave={this.handleSave}
         />

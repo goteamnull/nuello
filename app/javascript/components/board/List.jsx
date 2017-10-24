@@ -13,7 +13,10 @@ const List = (props) => {
         <div className="list">
           <a className="more-icon sm-icon" href=""></a>
           <div>
-            <ToggleableListTitle title={list.title} />
+            <ToggleableListTitle
+              id={list.id}
+              title={list.title}
+            />
           </div>
           <div className="add-dropdown add-top">
             <div className="card"></div><a className="button">Add</a><i className="x-icon icon"></i>
