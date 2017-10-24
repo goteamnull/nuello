@@ -38,7 +38,7 @@ class ListTitleFormContainer extends React.Component {
       actions.updateList(id, { title })
     );
 
-    this.props.onSave();
+    this.props.onSave(title);
   };
 
   render() {

@@ -11,6 +11,7 @@ class ToggleableListTitle extends React.Component {
   };
 
   state = {
+    title: this.props.title || '',
     showForm: false,
   };
 
@@ -22,14 +23,15 @@ class ToggleableListTitle extends React.Component {
     });
   };
 
-  handleSave = () => {
+  handleSave = (title) => {
     this.setState({
       showForm: false,
+      title: title,
     });
   };
 
   render() {
-    const title = this.props.title;
+    const title = this.state.title;
     const id = this.props.id;
 
     if (this.state.showForm) {
