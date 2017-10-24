@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :boards, only: [:index, :create, :show]
+    resources :lists, only: [:create, :update]
   end
 
   get '/ui/all_boards', to: 'ui#all_boards'
