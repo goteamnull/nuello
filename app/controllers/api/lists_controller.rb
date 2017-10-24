@@ -18,6 +18,9 @@ class Api::ListsController < ApplicationController
         render 'api/shared/error', status: :unprocessable_entity
       end
     end
+  rescue ActionController::ParameterMissing
+    @error = "Invalid list data provided"
+    render 'api/shared/error', status: :unprocessable_entity
   end
 
   def update
