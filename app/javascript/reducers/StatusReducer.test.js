@@ -43,4 +43,20 @@ describe("StatusReducer", () => {
       ).toEqual(statuses.BOARD_FETCHED_SUCCESSFULLY);
     });
   });
+
+  describe(actions.UPDATE_LIST_REQUEST, () => {
+    it("returns the correct status", () => {
+      expect(
+        reducer(undefined, { type: actions.UPDATE_LIST_REQUEST })
+      ).toEqual(statuses.UPDATING_LIST);
+    });
+  });
+
+  describe(actions.UPDATE_LIST_SUCCESS, () => {
+    it("returns the correct status", () => {
+      expect(
+        reducer(undefined, { type: actions.UPDATE_LIST_SUCCESS })
+      ).toEqual(statuses.LIST_UPDATED_SUCCESSFULLY);
+    });
+  });
 });

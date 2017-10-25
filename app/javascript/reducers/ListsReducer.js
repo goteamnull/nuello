@@ -15,6 +15,14 @@ export default function listsReducer(state = [], action) {
     newList.id = Number(newList.id);
 
     return state.concat(newList);
+  } else if (action.type === 'UPDATE_LIST_SUCCESS') {
+    const updatedList = action.list;
+
+    const unchangedLists = state.filter((stateList) => {
+      return stateList.id !== updatedList.id;
+    });
+
+    return [...unchangedLists, updatedList];
   } else {
     return state;
   }
