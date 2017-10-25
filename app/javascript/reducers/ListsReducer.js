@@ -10,6 +10,11 @@ export default function listsReducer(state = [], action) {
     });
 
     return [...unchangedLists, ...updatedLists];
+  } else if (action.type === 'CREATE_LIST_SUCCESS') {
+    const newList = action.list;
+    newList.id = Number(newList.id);
+
+    return state.concat(newList);
   } else if (action.type === 'UPDATE_LIST_SUCCESS') {
     const updatedList = action.list;
 
