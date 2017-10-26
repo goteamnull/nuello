@@ -4,9 +4,10 @@ import CardsSummariesContainer from './CardsSummariesContainer'
 
 const List = (props) => {
   const list = props.list;
+  console.log(props);
 
   return (
-    <div className="list-wrapper">
+    <div className="list-wrapper" onDrop={props.onDrop}>
         <div className="list-background">
             <div className="list">
                 <a className="more-icon sm-icon" href=""></a>
