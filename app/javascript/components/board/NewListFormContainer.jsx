@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import NewListForm from './NewListForm';
+import PositionCalculator from '../../lib/PositionCalculator'
 
 import * as actions from '../../actions/ListActions';
 
@@ -54,18 +55,24 @@ class NewListFormContainer extends React.Component {
     });
   };
 
+  calculatePosition = () => {
+    const lists = this.context.store.getState().lists;
+    return PositionCalculator(lists, lists.length);
+  };
+
   handleSave = () => {
     const newList = {
       board_id: this.props.boardId,
       list: {
-        title: this.state.title
+        title: this.state.title,
+        position: this.calculatePosition()
       }
     };
 
     this.context.store.dispatch(
       actions.createList(newList, () => {
         this.setState({
-          title: ''
+          title: '',
         });
 
         this.setInactive();

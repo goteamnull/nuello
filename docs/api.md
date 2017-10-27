@@ -241,7 +241,8 @@ NOTE: The `board_id` where the list will reside is required.
 {
   "board_id": 1,
   "list": { 
-    "title": "My list"
+    "title": "My list",
+    "position": 65535.0
   }
 }
 ```

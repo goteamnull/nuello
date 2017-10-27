@@ -8,7 +8,7 @@ const List = (props) => {
   const list = props.list;
 
   return (
-    <div className="list-wrapper">
+    <div className="list-wrapper" onDrop={props.onDrop}>
       <div className="list-background">
         <div className="list">
           <a className="more-icon sm-icon" href=""></a>
