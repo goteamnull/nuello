@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Lists from './Lists';
+import * as actions from '../../actions/ListActions';
 
 class ListsContainer extends React.Component {
   static contextTypes = {
@@ -29,6 +30,12 @@ class ListsContainer extends React.Component {
     });
   };
 
+  updatePosition = (id, newPosition) => {
+    this.context.store.dispatch(actions.updateList(id, {
+      position: newPosition
+    }));
+  };
+
   render() {
     const lists = this.allLists();
 
@@ -37,6 +44,7 @@ class ListsContainer extends React.Component {
         <Lists
           lists={lists}
           boardId={this.props.boardId}
+          updatePosition={this.updatePosition}
         />
       );
     } else {

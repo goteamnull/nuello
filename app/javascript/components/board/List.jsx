@@ -6,7 +6,6 @@ import ToggleableListTitle from './ToggleableListTitle';
 
 const List = (props) => {
   const list = props.list;
-  console.log(props);
 
   return (
     <div className="list-wrapper" onDrop={props.onDrop}>

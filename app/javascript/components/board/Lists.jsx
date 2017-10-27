@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Dragula from 'react-dragula';
+import PositionCalculator from '../../lib/PositionCalculator'
 
 import List from './List';
 import NewListFormContainer from './NewListFormContainer';
 
 const Lists = (props) => {
-  const lists = props.lists.map((list) => (
+  const listsClone = props.lists.slice();
+  const lists = listsClone.sort((a, b) => a.position - b.position)
+    .map((list) => (
     <List
       key={list.id}
       list={list}
@@ -14,10 +17,36 @@ const Lists = (props) => {
     />
   ));
 
+  // onDrop in the List component will respond to any
+  // event named 'drop' targeting that element
   const onDropEvent = new Event("drop", {"bubbles":true, });
 
+  const getOriginalPositionOfList = (id) => {
+    const listsClone = props.lists.slice();
+    return listsClone.sort((a, b) => a.position - b.position)
+      .findIndex((list) => list.id === id);
+  }
+
+  const getTargetPosition = (event) => {
+    const parent = event.target.parentNode;
+    const children = parent.childNodes;
+    let targetPosition;
+
+    for (let i = 0; i < children.length; i++) {
+      if (event.target === children[i]) {
+        targetPosition = i;
+      }
+    }
+
+    return targetPosition;
+  }
+
   const handleOnDrop = (event, id) => {
-    console.log(event, id);
+    const originalPosition = getOriginalPositionOfList(id);
+    const targetPosition = getTargetPosition(event);
+    const calculatedPosition = PositionCalculator(props.lists, targetPosition, originalPosition);
+
+    props.updatePosition(id, calculatedPosition);
   }
 
   const dragulaDecorator = (componentBackingInstance) => {

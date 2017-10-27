@@ -52,6 +52,6 @@ class Api::ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:title, :position)
   end
 end
