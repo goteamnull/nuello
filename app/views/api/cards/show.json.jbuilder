@@ -6,4 +6,6 @@ json.comments do
   end
 end
 
+json.labels []
+json.actions []
 json.comments_count @card.comments.count

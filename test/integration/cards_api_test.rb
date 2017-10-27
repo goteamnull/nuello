@@ -32,4 +32,43 @@ class CardsAPITest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  class PostCardsTest < ActionDispatch::IntegrationTest
+    class ValidDataTest < ActionDispatch::IntegrationTest
+      test "creates a new card" do
+        list = FactoryGirl.create(:list)
+        card = {
+          list_id: list.id,
+          card: {
+            title: 'My new card',
+            position: 1.0
+          }
+        }
+        assert_equal 0, Card.count
+
+        post "/api/cards",
+          params: card,
+          headers: { 'Accept' => 'application/json' }
+
+        assert_equal 1, Card.count
+      end
+
+      test "returns a 201" do
+        list = FactoryGirl.create(:list)
+        card = {
+          list_id: list.id,
+          card: {
+            title: 'My new card',
+            position: 1.0
+          }
+        }
+
+        post "/api/cards",
+          params: card,
+          headers: { 'Accept' => 'application/json' }
+
+        assert_response 201
+      end
+    end
+  end
 end
