@@ -12,6 +12,7 @@
  *
  *= require ./meyer_reset
  *= require ./trello-clone
+ *= require ./extra-styles
  *= require ./dragula
  *= require ./pikaday
  *= require_self
