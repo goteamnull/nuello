@@ -324,7 +324,8 @@ NOTE: The `list_id` where the card will reside is required.
 {
   "list_id": 13,
   "card": {
-    "title": "My new card"
+    "title": "My new card",
+    "position": 65535.0
   }
 }
 ```
