@@ -8,7 +8,7 @@ describe("ListTitle", () => {
     const wrapper = shallow(
       <ListTitle
         title="My list's title"
-        onClick={() => {}}
+        onDoubleClick={() => {}}
       />
     );
 

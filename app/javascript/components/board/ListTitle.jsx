@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ListTitle = (props) => (
   <p
     className="list-title"
-    onClick={props.onClick}
+    onDoubleClick={props.onDoubleClick}
   >
     {props.title}
   </p>
@@ -12,7 +12,7 @@ const ListTitle = (props) => (
 
 ListTitle.propTypes = {
   title: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onDoubleClick: PropTypes.func.isRequired,
 };
 
 export default ListTitle;
