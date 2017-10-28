@@ -9,13 +9,18 @@ import NewListFormContainer from './NewListFormContainer';
 const Lists = (props) => {
   const listsClone = props.lists.slice();
   const lists = listsClone.sort((a, b) => a.position - b.position)
-    .map((list) => (
-    <List
-      key={list.id}
-      list={list}
-      onDrop={(event) => handleOnDrop(event, list.id)}
-    />
-  ));
+    .map((list) => {
+      const activeDropdown = (list.id === props.activeDropdownListId);
+      return(
+        <List
+          key={list.id}
+          list={list}
+          onDrop={(event) => handleOnDrop(event, list.id)}
+          toggleActiveDropdown={props.toggleActiveDropdown}
+          activeDropdown={activeDropdown}
+        />
+      );
+    });
 
   // onDrop in the List component will respond to any
   // event named 'drop' targeting that element

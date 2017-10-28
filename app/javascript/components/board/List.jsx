@@ -3,12 +3,26 @@ import PropTypes from 'prop-types';
 
 import CardsSummariesContainer from './CardsSummariesContainer';
 import ToggleableListTitle from './ToggleableListTitle';
+import ToggleableCreateCardFormContainer from './ToggleableCreateCardFormContainer';
 
 const List = (props) => {
   const list = props.list;
 
+  const getClassName = () => {
+    if (props.activeDropdown) {
+      return 'list-wrapper add-dropdown-active';
+    } else {
+      return 'list-wrapper';
+    }
+  };
+
+  const handleAddClick = (e) => {
+    e.preventDefault();
+    props.toggleActiveDropdown(list.id);
+  }
+
   return (
-    <div className="list-wrapper" onDrop={props.onDrop}>
+    <div className={getClassName()} onDrop={props.onDrop}>
       <div className="list-background">
         <div className="list">
           <a className="more-icon sm-icon" href=""></a>
@@ -30,7 +44,18 @@ const List = (props) => {
             <div className="add-options"><span>...</span>
             </div>
           </div>
-          <div className="add-card-toggle" data-position="bottom">Add a card...</div>
+          <ToggleableCreateCardFormContainer 
+            listId={list.id}
+            toggleActiveDropdown={props.toggleActiveDropdown}
+            activeDropdown={props.activeDropdown}
+          />
+          <div 
+            className="add-card-toggle" 
+            data-position="bottom" 
+            onClick={handleAddClick}
+          >
+            Add a card...
+          </div>
         </div>
       </div>
     </div>
