@@ -19,8 +19,7 @@ const CardsSummaries = (props) => {
 };
 
 CardsSummaries.propTypes = {
-  store: PropTypes.object,
-  cards: PropTypes.array,
+  cards: PropTypes.array.isRequired,
 };
 
 export default CardsSummaries;

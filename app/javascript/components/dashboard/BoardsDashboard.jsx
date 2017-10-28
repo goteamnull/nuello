@@ -6,7 +6,7 @@ import ToggleableCreateBoardTile from './ToggleableCreateBoardTile';
 
 const BoardsDashboard = props => {
   let boards = props.boards.map((board) => (
-    <BoardTile 
+    <BoardTile
       title={board.title}
       id={board.id}
       key={board.id}
@@ -14,7 +14,7 @@ const BoardsDashboard = props => {
   ));
 
   boards.push(
-    <ToggleableCreateBoardTile 
+    <ToggleableCreateBoardTile
       key={'new-board'}
     />
   );

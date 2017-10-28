@@ -6,22 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-board = Board.create(title: 'team null')
+board = Board.create!(title: 'team null')
 
-list_1 = board.lists.create(title: 'todos', position: 65535.0)
-list_2 = board.lists.create(title: 'completed', position: 131070.0)
+list_1 = board.lists.create!(title: 'todos', position: 65535.0)
+list_2 = board.lists.create!(title: 'completed', position: 131070.0)
 
 # List 1 cards
-card_1 = list_1.cards.create(title: 'coffee')
-card_2 = list_1.cards.create(title: 'nails')
+card_1 = list_1.cards.create!(title: 'coffee', board_id: 1, position: 65535.0)
+card_2 = list_1.cards.create!(title: 'nails', board_id: 1, position: 131070.0)
 
 # List 2 cards
-card_3 = list_2.cards.create(title: 'apples')
-card_4 = list_2.cards.create(title: 'jbuilder')
-card_5 = list_2.cards.create(title: 'javascript')
+card_3 = list_2.cards.create!(title: 'apples', board_id: 1, position: 65535.0)
+card_4 = list_2.cards.create!(title: 'jbuilder', board_id: 1, position: 131070.0)
+card_5 = list_2.cards.create!(title: 'javascript', board_id: 1, position: 199070.0)
 
 # Sample comment
-comment_1 = card_5.comments.create(body: 'postman')
+# comment_1 = card_5.comments.create!(body: 'postman', board_id: 1)
 
 
 # {

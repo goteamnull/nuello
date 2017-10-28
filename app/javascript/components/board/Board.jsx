@@ -25,7 +25,7 @@ const Board = (props) => {
 }
 
 Board.propTypes = {
-  board: PropTypes.object.isRequired
+  board: PropTypes.object.isRequired,
 };
 
 

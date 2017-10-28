@@ -11,6 +11,7 @@ class Api::CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     @card.list_id = params[:list_id]
+    @card.board_id = params[:board_id]
 
     if @card.save
       render :create, status: :created

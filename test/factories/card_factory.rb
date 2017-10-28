@@ -3,5 +3,6 @@ FactoryGirl.define do
     title { FFaker::Lorem.unique.words.join(" ") }
     sequence(:position)
     list
+    board
   end
 end

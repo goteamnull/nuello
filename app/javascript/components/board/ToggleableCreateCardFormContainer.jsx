@@ -48,10 +48,11 @@ class ToggleableCreateCardFormContainer extends React.Component {
     }
 
     const newCard = {
+      board_id: this.props.boardId,
       list_id: this.props.listId,
       card: {
        title: this.state.title,
-       position: this.calculatePosition() 
+       position: this.calculatePosition()
       }
     };
 
