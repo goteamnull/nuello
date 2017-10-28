@@ -69,6 +69,42 @@ class CardsAPITest < ActionDispatch::IntegrationTest
 
         assert_response 201
       end
+
+      test "returns the new card and timestamps" do
+        list = FactoryGirl.create(:list)
+        card = {
+          list_id: list.id,
+          card: {
+            title: 'My new card',
+            position: 1.0
+          }
+        }
+
+        post "/api/cards",
+          params: card,
+          headers: { 'Accept' => 'application/json' }
+
+        assert_includes response.body, Card.first.title
+        assert_includes response.body, "created_at"
+        assert_includes response.body, "updated_at" 
+      end
+    end
+
+    class InvalidDataTest < ActionDispatch::IntegrationTest
+      test "returns a 422" do
+        card = {
+          card: {
+            title: 'My new card',
+            position: 1.0
+          }
+        }
+
+        post "/api/cards",
+          params: card,
+          headers: { 'Accept' => 'application/json' }
+
+        assert_response 422
+      end
     end
   end
 end
