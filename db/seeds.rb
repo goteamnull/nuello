@@ -8,8 +8,8 @@
 
 board = Board.create(title: 'team null')
 
-list_1 = board.lists.create(title: 'todos')
-list_2 = board.lists.create(title: 'completed')
+list_1 = board.lists.create(title: 'todos', position: 65535.0)
+list_2 = board.lists.create(title: 'completed', position: 131070.0)
 
 # List 1 cards
 card_1 = list_1.cards.create(title: 'coffee')
