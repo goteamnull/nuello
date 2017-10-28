@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-const Card = (props) => (
+const Card = ({ card, list, boardId }) => (
   <div id="modal-container">
-    <Link to={`/boards/${props.boardId}`}>
+    <Link to={`/boards/${boardId}`}>
       <div className="screen"></div>
     </Link>
     <div id="modal">
-      <Link to={`/boards/${props.boardId}`}>
+      <Link to={`/boards/${boardId}`}>
         <i className="x-icon icon close-modal"></i>
       </Link>
       <header>
@@ -17,9 +17,11 @@ const Card = (props) => (
         <textarea
           className="list-title"
           style={{height: "45px"}}
-          value="Cards do many cool things. Click on this card to open it and learn more..."
+          value={card.title}
         />
-        <p>in list <a className="link">Stuff to try (this is a list)</a><i className="sub-icon sm-icon"></i>
+        <p>in list <a className="link">
+          {list.title}
+        </a><i className="sub-icon sm-icon"></i>
         </p>
       </header>
       <section className="modal-main">

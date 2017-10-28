@@ -240,7 +240,7 @@ NOTE: The `board_id` where the list will reside is required.
 ```json
 {
   "board_id": 1,
-  "list": { 
+  "list": {
     "title": "My list",
     "position": 65535.0
   }
