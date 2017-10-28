@@ -15,19 +15,21 @@ class ToggleableListTitle extends React.Component {
     showForm: false,
   };
 
-  handleTitleClick = (e) => {
-    e.preventDefault();
+  toggleForm = (e) => {
+    e && e.preventDefault();
+    console.log('fired')
 
     this.setState({
-      showForm: true,
+      showForm: !this.state.showForm,
     });
   };
 
   handleSave = (title) => {
     this.setState({
-      showForm: false,
       title: title,
     });
+
+    this.toggleForm();
   };
 
   render() {
@@ -46,7 +48,7 @@ class ToggleableListTitle extends React.Component {
       return (
         <ListTitle
           title={title}
-          onClick={this.handleTitleClick}
+          onDoubleClick={this.toggleForm}
         />
       );
     }
