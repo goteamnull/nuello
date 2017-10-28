@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-const Card = ({ card, list, boardId }) => (
+const Card = ({ card, ...props }) => (
   <div id="modal-container">
-    <Link to={`/boards/${boardId}`}>
+    <Link to={`/boards/${card.board_id}`}>
       <div className="screen"></div>
     </Link>
     <div id="modal">
-      <Link to={`/boards/${boardId}`}>
+      <Link to={`/boards/${card.board_id}`}>
         <i className="x-icon icon close-modal"></i>
       </Link>
       <header>
@@ -20,7 +20,7 @@ const Card = ({ card, list, boardId }) => (
           value={card.title}
         />
         <p>in list <a className="link">
-          {list.title}
+          {props.getListTitle(card.list_id)}
         </a><i className="sub-icon sm-icon"></i>
         </p>
       </header>
@@ -187,8 +187,8 @@ const Card = ({ card, list, boardId }) => (
 );
 
 Card.propTypes = {
-  boardId: PropTypes.number.isRequired,
   card: PropTypes.object.isRequired,
+  getListTitle: PropTypes.func.isRequired,
 };
 
 export default Card;

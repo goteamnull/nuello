@@ -44,14 +44,15 @@ const List = (props) => {
             <div className="add-options"><span>...</span>
             </div>
           </div>
-          <ToggleableCreateCardFormContainer 
+          <ToggleableCreateCardFormContainer
             listId={list.id}
+            boardId={list.board_id}
             toggleActiveDropdown={props.toggleActiveDropdown}
             activeDropdown={props.activeDropdown}
           />
-          <div 
-            className="add-card-toggle" 
-            data-position="bottom" 
+          <div
+            className="add-card-toggle"
+            data-position="bottom"
             onClick={handleAddClick}
           >
             Add a card...

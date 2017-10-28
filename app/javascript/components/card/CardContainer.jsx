@@ -31,28 +31,25 @@ class CardContainer extends React.Component {
     );
   };
 
-  getList = (card) => {
+  getListTitle = (id) => {
     const store = this.context.store;
-
-    return store.getState().lists.find(list =>
-      list.id === card.list_id
+    const list = store.getState().lists.find(list =>
+      list.id === id
     );
+
+    return list && list.title;
   }
 
   render() {
     const card = this.getCard();
 
     if (card) {
-      const list = this.getList(card);
-      const boardId = list.board_id;
-
       return (
         <div>
-          <BoardContainer id={boardId} />
+          <BoardContainer id={card.board_id} />
           <Card
             card={card}
-            list={list}
-            boardId={boardId}
+            getListTitle={this.getListTitle}
           />
         </div>
       );

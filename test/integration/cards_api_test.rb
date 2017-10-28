@@ -38,6 +38,7 @@ class CardsAPITest < ActionDispatch::IntegrationTest
       test "creates a new card" do
         list = FactoryGirl.create(:list)
         card = {
+          board_id: list.board_id,
           list_id: list.id,
           card: {
             title: 'My new card',
@@ -56,6 +57,7 @@ class CardsAPITest < ActionDispatch::IntegrationTest
       test "returns a 201" do
         list = FactoryGirl.create(:list)
         card = {
+          board_id: list.board_id,
           list_id: list.id,
           card: {
             title: 'My new card',
@@ -73,6 +75,7 @@ class CardsAPITest < ActionDispatch::IntegrationTest
       test "returns the new card and timestamps" do
         list = FactoryGirl.create(:list)
         card = {
+          board_id: list.board_id,
           list_id: list.id,
           card: {
             title: 'My new card',
@@ -86,7 +89,7 @@ class CardsAPITest < ActionDispatch::IntegrationTest
 
         assert_includes response.body, Card.first.title
         assert_includes response.body, "created_at"
-        assert_includes response.body, "updated_at" 
+        assert_includes response.body, "updated_at"
       end
     end
 
