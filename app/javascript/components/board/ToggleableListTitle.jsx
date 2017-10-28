@@ -17,7 +17,6 @@ class ToggleableListTitle extends React.Component {
 
   toggleForm = (e) => {
     e && e.preventDefault();
-    console.log('fired')
 
     this.setState({
       showForm: !this.state.showForm,
