@@ -10,9 +10,6 @@ export default function cardsReducer(state = [], action) {
 
     return [...unchangedCards, ...updatedCards];
   } else if (action.type === 'FETCH_CARD_SUCCESS') {
-    // take out comments, update the fetched card
-    // return all other cards summaries + fetched complete card
-
     const { comments, ...updatedCard } = action.card;
     const unchangedCards = state.filter((stateCard) => (
       stateCard.id !== updatedCard.id

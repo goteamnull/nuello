@@ -236,4 +236,70 @@ describe("ApiClient", () => {
       });
     });
   });
+
+  describe("getCard", () => {
+    const id = 1;
+
+    const card = {
+      id: 1,
+      title: "Some card",
+      position: 65536,
+    };
+
+    describe("successful request", () => {
+      const cb = jest.fn();
+
+      it("calls the callback with the card", async () => {
+        mock.onGet(
+          routes.CARD_URL + id
+        ).reply(
+          200, card
+        );
+        client.getCard(id, cb);
+
+        await flushPromises();
+
+        expect(cb).toHaveBeenCalledWith(card);
+      });
+    });
+
+    describe("failed request", () => {
+      const originalError = global.console.error;
+      const errorText = "Invalid card id provided";
+      const invalidId = 99999;
+
+      beforeEach(() => {
+        global.console.error = jest.fn();
+
+        mock.onGet(
+          routes.CARD_URL + invalidId
+        ).reply(404, { error: errorText } )
+      });
+
+      afterEach(() => {
+        global.console.error = originalError
+      });
+
+      it("logs the error", async () => {
+        client.getCard(invalidId);
+
+        await flushPromises();
+
+        expect(
+          global.console.error
+        ).toHaveBeenCalledWith(
+          `HTTP Error: ${errorText}`
+        );
+      });
+
+      it("doesn't call the callback", async () => {
+        const cb = jest.fn();
+        client.getCard(invalidId, cb);
+
+        await flushPromises();
+
+        expect(cb).not.toHaveBeenCalled();
+      });
+    });
+  });
 });
