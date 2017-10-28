@@ -30,8 +30,8 @@ class Application extends React.Component {
       <div>
         <TopNav />
         <Route path='/' exact component={BoardsDashboardContainer} />
-        <Route path='/boards/:id' component={BoardContainer} />
-        <Route path='/cards/:id' component={CardContainer} />
+        <Route path='/(boards|cards)/:id' exact component={BoardContainer} />
+        <Route path='/cards/:id' exact component={CardContainer} />
       </div>
     );
   }

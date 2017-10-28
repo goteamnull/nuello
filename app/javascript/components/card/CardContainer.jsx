@@ -45,13 +45,10 @@ class CardContainer extends React.Component {
 
     if (card) {
       return (
-        <div>
-          <BoardContainer id={card.board_id} />
-          <Card
-            card={card}
-            getListTitle={this.getListTitle}
-          />
-        </div>
+        <Card
+          card={card}
+          getListTitle={this.getListTitle}
+        />
       );
     } else {
       return null;
