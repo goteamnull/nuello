@@ -3,3 +3,5 @@ export const BOARD_URL        = '/api/boards/';
 export const CREATE_BOARD_URL = '/api/boards';
 export const CREATE_LIST_URL = '/api/lists';
 export const UPDATE_LIST_URL  = '/api/lists/';
+export const CRAETE_CARD_UL  = '/api/cards/';
+
