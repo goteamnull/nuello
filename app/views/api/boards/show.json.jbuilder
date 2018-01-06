@@ -6,6 +6,7 @@ json.lists do
     json.cards do
       json.array! list.cards do |card|
         json.merge! card.attributes
+        json.labels []
         json.comments_count card.comments.count
       end
     end

@@ -240,7 +240,7 @@ NOTE: The `board_id` where the list will reside is required.
 ```json
 {
   "board_id": 1,
-  "list": { 
+  "list": {
     "title": "My list",
     "position": 65535.0
   }
@@ -324,7 +324,8 @@ NOTE: The `list_id` where the card will reside is required.
 {
   "list_id": 13,
   "card": {
-    "title": "My new card"
+    "title": "My new card",
+    "position": 65535.0
   }
 }
 ```

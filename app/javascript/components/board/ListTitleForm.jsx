@@ -9,6 +9,7 @@ const ListTitleForm = (props) => (
       onFocus={e => e.target.select()}
       value={props.title}
       onChange={props.onTextChange}
+      onBlur={props.onSubmit}
     />
     <input
       type="submit"

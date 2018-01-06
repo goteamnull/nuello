@@ -23,10 +23,10 @@ class CardsSummariesContainer extends React.Component {
 
   allCardsSummaries = () => {
     const store = this.context.store;
-    const cards = store.getState().cards
+    const cards = store.getState().cards;
 
     return cards.filter(card => card.list_id === this.props.listId);
-  }
+  };
 
   render() {
     const cards = this.allCardsSummaries();

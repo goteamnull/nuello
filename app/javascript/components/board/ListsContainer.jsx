@@ -13,6 +13,16 @@ class ListsContainer extends React.Component {
     boardId: PropTypes.number.isRequired
   };
 
+  state = {
+    activeDropdownListId: null,
+  }
+
+  toggleActiveDropdown = (id) => {
+    this.setState({
+      activeDropdownListId: id
+    });
+  }
+
   componentDidMount() {
     const store = this.context.store;
     this.unsubscribe = store.subscribe(() => this.forceUpdate());
@@ -45,6 +55,8 @@ class ListsContainer extends React.Component {
           lists={lists}
           boardId={this.props.boardId}
           updatePosition={this.updatePosition}
+          toggleActiveDropdown={this.toggleActiveDropdown}
+          activeDropdownListId={this.state.activeDropdownListId}
         />
       );
     } else {

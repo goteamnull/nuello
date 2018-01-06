@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import TopNav from './shared/TopNav';
 import BoardsDashboardContainer from './dashboard/BoardsDashboardContainer';
 import BoardContainer from './board/BoardContainer';
+import CardContainer from './card/CardContainer';
 
 import { fetchBoards } from '../actions/BoardActions';
 
@@ -29,7 +30,8 @@ class Application extends React.Component {
       <div>
         <TopNav />
         <Route path='/' exact component={BoardsDashboardContainer} />
-        <Route path='/boards/:id' component={BoardContainer} />
+        <Route path='/(boards|cards)/:id' exact component={BoardContainer} />
+        <Route path='/cards/:id' exact component={CardContainer} />
       </div>
     );
   }

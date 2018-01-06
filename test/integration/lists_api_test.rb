@@ -4,7 +4,7 @@ class ListsAPITest < ActionDispatch::IntegrationTest
   class PostListTest < ActionDispatch::IntegrationTest
     test "creates a new list" do
       board = FactoryGirl.create(:board)
-      list = { board_id: board.id,  list: { title: "My new list" } }
+      list = { board_id: board.id, list: { title: "My new list", position: 1.0 } }
       assert_equal 0, List.count
 
       post "/api/lists",
@@ -16,7 +16,7 @@ class ListsAPITest < ActionDispatch::IntegrationTest
 
     test "returns a json object with the new list and timestamps" do
       board = FactoryGirl.create(:board)
-      list = { board_id: board.id,  list: { title: "My new list" } }
+      list = { board_id: board.id,  list: { title: "My new list", position: 1.0 } }
 
       post "/api/lists",
         params: list,
@@ -30,7 +30,7 @@ class ListsAPITest < ActionDispatch::IntegrationTest
 
     test "returns a 201 status when successfully created" do
       board = FactoryGirl.create(:board)
-      list = { board_id: board.id,  list: { title: "My new list" } }
+      list = { board_id: board.id,  list: { title: "My new list", position: 1.0 } }
 
       post "/api/lists",
         params: list,
