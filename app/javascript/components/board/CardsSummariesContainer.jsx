@@ -9,7 +9,8 @@ class CardsSummariesContainer extends React.Component {
   };
 
   static propTypes = {
-    listId: PropTypes.number.isRequired
+    listId: PropTypes.number.isRequired,
+    addContainerToDrake: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -35,6 +36,7 @@ class CardsSummariesContainer extends React.Component {
       return (
         <CardsSummaries
           cards={cards}
+          addContainerToDrake={this.props.addContainerToDrake}
         />
       );
     } else {

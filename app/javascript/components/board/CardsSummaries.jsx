@@ -11,8 +11,14 @@ const CardsSummaries = (props) => {
     />
   ));
 
+  const dragulaDecorator = (componentBackingInstance) => {
+    if (componentBackingInstance) {
+      props.addContainerToDrake(componentBackingInstance);
+    }
+  };
+
   return (
-    <div id="cards-container" data-id="list-1-cards">
+    <div id="cards-container" data-id="list-1-cards" ref={dragulaDecorator}>
       {cards}
     </div>
   );

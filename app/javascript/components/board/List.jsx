@@ -37,7 +37,10 @@ const List = (props) => {
             <div className="add-options"><span>...</span>
             </div>
           </div>
-          <CardsSummariesContainer listId={list.id}/>
+          <CardsSummariesContainer
+            listId={list.id}
+            addContainerToDrake={props.addContainerToDrake}
+          />
           <div className="add-dropdown add-bottom">
             <div className="card"><div className="card-info"></div><textarea name="add-card"></textarea><div className="members"></div></div>
             <a className="button">Add</a><i className="x-icon icon"></i>
@@ -65,6 +68,7 @@ const List = (props) => {
 
 List.propTypes = {
   list: PropTypes.object.isRequired,
+  addContainerToDrake: PropTypes.func.isRequired,
 };
 
 export default List;

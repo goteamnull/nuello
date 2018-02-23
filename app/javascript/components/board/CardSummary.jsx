@@ -7,7 +7,7 @@ const CardSummary = (props) => {
   const card = props.card;
 
   return (
-    <Link to={`/cards/${card.id}`}>
+    <Link to={`/cards/${card.id}`} className="card-link">
       <div className="card-background">
         <div className="card "><i className="edit-toggle edit-icon sm-icon"></i>
           <div className="card-info">

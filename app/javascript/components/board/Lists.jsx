@@ -7,7 +7,14 @@ import List from './List';
 import NewListFormContainer from './NewListFormContainer';
 
 const Lists = (props) => {
+  const cardsDrake = Dragula();
+
+  const addContainerToDrake = (componentBackingInstance) => {
+    cardsDrake.containers.push(componentBackingInstance);
+  };
+
   const listsClone = props.lists.slice();
+
   const lists = listsClone.sort((a, b) => a.position - b.position)
     .map((list) => {
       const activeDropdown = (list.id === props.activeDropdownListId);
@@ -18,6 +25,7 @@ const Lists = (props) => {
           onDrop={(event) => handleOnDrop(event, list.id)}
           toggleActiveDropdown={props.toggleActiveDropdown}
           activeDropdown={activeDropdown}
+          addContainerToDrake={addContainerToDrake}
         />
       );
     });
@@ -56,9 +64,14 @@ const Lists = (props) => {
 
   const dragulaDecorator = (componentBackingInstance) => {
     if (componentBackingInstance) {
-      let options = { };
+      let options = {
+        moves: function(el, source, handle) {
+          // don't move list if dragging card
+          return !handle.closest('.card-link');
+        }
+      };
       const drake = Dragula([componentBackingInstance], options);
-      drake.on('drop', (el, target, source, sibling) => 
+      drake.on('drop', (el, target, source, sibling) =>
         el.dispatchEvent(onDropEvent));
     }
   };
