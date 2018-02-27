@@ -35,6 +35,7 @@ class CardsSummariesContainer extends React.Component {
     if (cards) {
       return (
         <CardsSummaries
+          listId={this.props.listId}
           cards={cards}
           addContainerToDrake={this.props.addContainerToDrake}
         />

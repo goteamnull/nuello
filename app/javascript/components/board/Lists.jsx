@@ -7,7 +7,14 @@ import List from './List';
 import NewListFormContainer from './NewListFormContainer';
 
 const Lists = (props) => {
-  const cardsDrake = Dragula();
+  const cardsDrake = (() => {
+    const drake = Dragula();
+    drake.on('drop', (el, target, source, sibling) => {
+      console.log(target === source);
+      el.dispatchEvent(onDropEvent);
+    });
+    return drake;
+  })();
 
   const addContainerToDrake = (componentBackingInstance) => {
     cardsDrake.containers.push(componentBackingInstance);
