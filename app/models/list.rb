@@ -4,4 +4,16 @@ class List < ApplicationRecord
 
   validates_presence_of :title, allow_blank: false
   validates_presence_of :position
+
+  def self.updatableAttributes
+    [
+      :title,
+      :list_id,
+      :position,
+      :description,
+      :archived,
+      :due_date,
+      :completed
+    ]
+  end
 end

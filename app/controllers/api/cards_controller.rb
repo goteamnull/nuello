@@ -25,7 +25,7 @@ class Api::CardsController < ApplicationController
   end
 
   def update
-    unless card_update_params_valid?
+    unless update_card_params_valid?
       @error = 'at least one allowed attribute must be included'
       render 'api/shared/error', status: :unprocessable_entity
       return
@@ -33,7 +33,7 @@ class Api::CardsController < ApplicationController
 
     @card = Card.find(params[:id])
 
-    if @card.update_attributes(card_update_params)
+    if @card.update_attributes(update_card_params)
       render :update, status: :ok
     else
       @error = @card.errors.full_messages.join(', ')
@@ -43,6 +43,9 @@ class Api::CardsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     @error = "Invalid card id provided"
     render 'api/shared/error', status: :not_found
+  rescue ActionController::ParameterMissing
+    @error = "JSON must have a non-empty card attribute"
+    render 'api/shared/error', status: :bad_request
   end
 
   private
@@ -51,25 +54,13 @@ class Api::CardsController < ApplicationController
     params.require(:card).permit(:title, :position)
   end
 
-  def card_update_allowed_attributes
-    [
-      :title,
-      :list_id,
-      :position,
-      :description,
-      :archived,
-      :due_date,
-      :completed
-    ]
+  def update_card_params
+    params.require(:card).permit(*Card.updatableAttributes)
   end
 
-  def card_update_params
-    params.require(:card).permit(*card_update_allowed_attributes)
-  end
-
-  def card_update_params_valid?
-    card_update_params.as_json.any? do |k, _|
-      card_update_allowed_attributes.include?(k.to_sym)
+  def update_card_params_valid?
+    update_card_params.as_json.any? do |k, _|
+      Card.updatableAttributes.include?(k.to_sym)
     end
   end
 end
